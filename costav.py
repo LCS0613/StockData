@@ -112,6 +112,6 @@ class Costaveraging():
 
 
 if __name__ == '__main__':
-    spy = Costaveraging('QQQ', '2010-12-01', '2023-12-01', 50, 7)
+    spy = Costaveraging('QQQ', '2010-03-01', '2023-05-01', 100, 7)
     print(spy.ca_df())
     print(spy.ca_return())

@@ -56,7 +56,7 @@ class Chart:
 
 
 if __name__ == '__main__':
-    tickers = ['SPY', 'QQQ', 'VOO']
+    tickers = ['SPY', 'QQQ']
 
-    stock_plotter = Chart(tickers, '2015-12-01', '2020-12-01')
+    stock_plotter = Chart(tickers, '2000-12-01', '2023-06-01')
     stock_plotter.plotstock(type='month')
