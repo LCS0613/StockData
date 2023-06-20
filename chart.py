@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 import yfinance as yf
+import mplfinance as mpf
+
 
 class Chart:
     def __init__(self, ticker, start_date, end_date):
@@ -34,7 +36,8 @@ class Chart:
         plt.legend()
         plt.show()
 
-    def plotstock(self, type='month'):
+    # 라인차트 플롯
+    def plotlinechart(self, type='month'):
 
         if type == 'day':
             plt.plot(self.data['Adj Close'], label=self.ticker)
@@ -53,10 +56,24 @@ class Chart:
         plt.legend()
         plt.show()
 
+    # 캔들차트 플롯
+    def plotcandle(self, type='month'):
+
+        if type == 'day':
+            mpf.plot(self.data, type='candle', volume=True, figratio=(16, 9),
+                     title='Stock Price' + '(' + type + ')')
+        elif type == 'month':
+            monthly_data = self.data.resample('M').last()
+            mpf.plot(monthly_data, type='candle', volume=True, figratio=(16, 9), title='Stock Price' + '(' + type + ')')
+        elif type == 'year':
+            yearly_data = self.data.resample('Y').last()
+            mpf.plot(yearly_data, type='candle', volume=True, figratio=(16, 9), title='Stock Price' + '(' + type + ')')
+        else:
+            raise ValueError('수익률을 계산할 단위(day, month, year)가 잘못 입력되었습니다.')
 
 
 if __name__ == '__main__':
-    tickers = ['SPY', 'QQQ']
+    tickers = ['QQQ']
 
-    stock_plotter = Chart(tickers, '2000-12-01', '2023-06-01')
-    stock_plotter.plotstock(type='month')
+    stock_plotter = Chart(tickers, '2023-06-01', '2023-06-19')
+    stock_plotter.plotcandle(type='day')
