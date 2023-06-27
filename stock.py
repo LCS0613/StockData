@@ -120,8 +120,8 @@ class Plotter:
 
 
 if __name__ == '__main__':
-    start_date = '2010-02-09'
-    end_date = '2023-05-23'
+    start_date = '2003-01-01'
+    end_date = '2023-01-21'
     ticker = 'AAPL'
     num_test = 10000
 
