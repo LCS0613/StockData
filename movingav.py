@@ -132,5 +132,5 @@ def run(ticker, start_date, end_date, investment):
 if __name__ == '__main__':
     data = download_data('SPY', '2015-01-01', '2018-01-01')
     ma_data, _, _ = ma_strategies(data, 1000)
-    run('SPY', '2015-01-01', '2018-01-01', 1000)
+    run('EPAM', '2019-01-01', '2023-01-01', 1000)
     plot_moving_averages(data, ma_data, 'SPY')
